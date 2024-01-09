@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
 
-function App() {
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Importing 'Routes' instead of 'Switch'
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import StudentDashboard from './pages/StudentDashboard';
+import DonorDashboard from './pages/DonorDashboard';
+import SchoolAdminDashboard from './pages/SchoolAdminDashboard';
+import AdminDashboard from './pages/AdminDashboard';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>  {/* Using 'Routes' instead of 'Switch' */}
+        <Route path="/" element={<Home />} />  
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/student" element={<StudentDashboard />} />
+        <Route path="/donor" element={<DonorDashboard />} />
+        <Route path="/school-admin" element={<SchoolAdminDashboard />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+      </Routes>
+      <h1>Welcome to the Meal Supply Website!</h1> {/* Displaying welcome message */}
+    </Router>
   );
-}
+};
 
 export default App;
